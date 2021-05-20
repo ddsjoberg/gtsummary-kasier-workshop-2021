@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 Import the data and add variable labels using the `labelled::set_variable_labels()` function.
 
 ```{r import}
+# load libraries
+library(gtsummary)
+library(tidyverse)
+
 # import data
 df_opt <- readRDS(file = here::here("data", "df_opt.rds"))
 ```
