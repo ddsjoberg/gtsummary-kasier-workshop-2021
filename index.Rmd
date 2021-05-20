@@ -179,3 +179,5 @@ modify_table_styling(
 1. Add analysis code to `analysis_opt_study.Rmd` and save results
 
 1. Prepare report of study results in `report_opt_study.Rmd`
+
+.footnote[Workshop data set from https://github.com/higgi13425/medicaldata]
