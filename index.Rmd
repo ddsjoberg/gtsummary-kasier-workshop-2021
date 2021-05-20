@@ -50,7 +50,7 @@ class: inverse, center, title-slide, middle
 
 ### Daniel D. Sjoberg
 
-#### April 27, 2021
+#### May 26, 2021
 
 
 <p align="center"><img src="Images/White-Transparent.png" width=30%></p>
@@ -59,7 +59,6 @@ class: inverse, center, title-slide, middle
 `r icons::fontawesome("twitter") %>% icons::icon_style(fill = "#FFFFFF")` @statistishdan
 `r icons::fontawesome("github")  %>% icons::icon_style(fill = "#FFFFFF")` @ddsjoberg
 ]
-
 
 ---
 ```{r child='01-background.Rmd'}
@@ -167,3 +166,16 @@ modify_table_styling(
 ]
 ]
 
+---
+# gtsummary workshop
+
+1. Navigate to the presentation slides http://bit.ly/kasier-gtsummary
+
+1. Download workshop material with
+  - `usethis::use_course("https://github.com/ddsjoberg/gtsummary-kasier-workshop-2021/raw/main/student-materials/student-materials.zip")`
+  
+1. Review data code book (`codebook.xlsx`), and outline of statistical analyses (`report_opt_study.Rmd`)
+
+1. Add analysis code to `analysis_opt_study.Rmd` and save results
+
+1. Prepare report of study results in `report_opt_study.Rmd`
