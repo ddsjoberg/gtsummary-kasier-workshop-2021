@@ -1,0 +1,169 @@
+---
+title: "gtsummary: Beyond the Basics"
+author: "Daniel D. Sjoberg"
+date: "April 27, 2021"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, custom.css]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+set.seed(78987)
+library(xaringanthemer)
+library(gtsummary)
+
+style_mono_accent(
+  base_color = "#007CBA"
+)
+
+# xaringan::inf_mr() 
+options(htmltools.dir.version = FALSE) 
+
+# helper function to save gtsummary objects
+my_gtsave <- function(x) {
+  # if being knitted, then skip (save your objects before you knit)
+  if (isTRUE(getOption('knitr.in.progress'))) return(invisible(NULL))
+   
+  path <- file.path("Images", paste0(x, ".png"))
+  x <- eval(parse(text=x)) 
+  if (inherits(x, "gtsummary")) x <- as_gt(x) 
+  gt::gtsave(x, path)   
+}    
+```
+
+```{r xaringanExtra-freezeframe, echo=FALSE}
+xaringanExtra::use_freezeframe()
+```
+
+class: inverse, center, title-slide, middle
+
+# Presentation-ready Summary Tables with {gtsummary}
+
+### Daniel D. Sjoberg
+
+#### April 27, 2021
+
+
+<p align="center"><img src="Images/White-Transparent.png" width=30%></p>
+
+.medium[
+`r icons::fontawesome("twitter") %>% icons::icon_style(fill = "#FFFFFF")` @statistishdan
+`r icons::fontawesome("github")  %>% icons::icon_style(fill = "#FFFFFF")` @ddsjoberg
+]
+
+
+---
+```{r child='01-background.Rmd'}
+```
+
+
+---
+```{r child='02-trial.Rmd'}
+```
+
+
+---
+```{r child='03-tbl_summary.Rmd'}
+```
+
+
+---
+```{r child='04-tbl_regression.Rmd'}
+```
+
+
+---
+```{r child='05-inline_text.Rmd'}
+```
+
+
+---
+```{r child='06-tbl_merge.Rmd'}
+```
+
+
+---
+```{r child='07-themes.Rmd'}
+```
+
+
+---
+```{r child='08-print_engines.Rmd'}
+```
+
+
+---
+```{r child='09-summary.Rmd'}
+```
+
+---
+# gtsummary object
+
+```{r}
+tbl <- tbl_summary(trial, by = trt, include = c(age, trt)) %>% add_p()
+tbl$table_body 
+```
+
+---
+# gtsummary object
+
+```{r}
+names(tbl$table_styling)
+tbl$table_styling
+```
+
+---
+# gtsummary object
+
+.pull-left[
+```
+modify_table_styling(
+  x,
+  columns,
+  rows = NULL,
+  label = NULL,
+  spanning_header = NULL,
+  hide = NULL,
+  footnote = NULL,
+  footnote_abbrev = NULL,
+  align = NULL,
+  missing_symbol = NULL,
+  fmt_fun = NULL,
+  text_format = NULL,
+  undo_text_format = FALSE,
+  text_interpret = c("md", "html"),
+  cols_merge_pattern = NULL
+)
+```
+]
+
+.large[
+.pull-right[
+`modify_header()` 
+<br>
+`modify_footnote()` 
+<br>
+`modify_spanning_header()` 
+<br>
+`modify_caption()` 
+<br>
+`modify_column_hide()` 
+<br>
+`modify_column_unhide()` 
+<br>
+`modify_fmt_fun()`
+<br>
+<br>
+`modify_table_body()`
+]
+]
+

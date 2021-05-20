@@ -1,0 +1,65 @@
+---
+title: "Analyses: OPT Study"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import Data
+
+Import the data and add variable labels using the `labelled::set_variable_labels()` function.
+
+```{r import}
+# import data
+df_opt <- readRDS(file = here::here("data", "df_opt.rds"))
+```
+
+## Cohort Summary
+
+Create a table summarizing patient baseline characteristics by randomization assignment.
+
+```{r summary}
+
+```
+
+## Treatment Comparison
+
+Create a table comparing the following outcomes by randomization group
+  - rate of gestational age <= 37 weeks
+  - mean difference in gestational age
+  - mean difference in birth weight
+  
+```{r compare}
+df_opt %>%
+  select(group, preg_ended_37_wk, ga_at_outcome, birthweight) %>%
+  tbl_summary(
+    by = group, 
+    missing = "no",
+    statistic = all_continuous() ~ "{mean} ({sd})"
+  ) %>%
+  add_n() %>%
+  add_difference()
+```
+
+## Models
+
+Build three regression models to predict gestational age <= 37 weeks, continuous gestational age, and continuous birth weight using patient baseline characteristics and randomization assignment.
+Summarize each model using the gtsummary package, and merge the results into a single table.
+
+```{r model}
+
+```
+
+## Save
+
+Save all results
+
+```{r save}
+save(
+  # list result objects here to save them
+  file = here::here("data", "results.RData")
+)
+```
+

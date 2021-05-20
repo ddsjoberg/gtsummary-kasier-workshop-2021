@@ -1,0 +1,45 @@
+---
+title: 'OPT Study Results'
+output: html_document
+bibliography: "references.bib"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# import data and analysis results
+df_opt <- readRDS(file = here::here("data", "df_opt.rds"))
+# load(file = here::here("data", "results.RData"))
+
+# load libraries
+library(gtsummary)
+library(tidyverse)
+```
+
+## Methods
+
+Maternal periodontal disease has been linked in observational studies to preterm birth (≤ 37 weeks) and low birth weight outcomes.
+The Obstetrics and Periodontal Therapy study was a multi-center randomized trial evaluating the effect of nonsurgical periodontal treatment intervention on preterm birth, comparing outcomes of women treated before 21 weeks gestation (treatment) to those treated after delivery (control).
+`r nrow(df_opt)` participants enrolled at `r n_distinct(df_opt$clinic)` centers underwent stratified randomization.
+Regardless of assignment, all participants were 13-16 weeks pregnant at time of randomization and went on to attend monthly follow-up.
+The treatment group received periodontal treatment, oral hygiene instruction, and tooth polishing at their follow-ups, while those assigned to control underwent only brief oral exams.
+The primary outcome of interest is gestational age ≤ 37 weeks. 
+Additional outcomes include continuous birth weight and gestational age.
+
+Statistical analyses were carried out on an intent-to-treat basis.
+Differences in gestational age ≤ 37 weeks were assessed using Pearson's chi-squared test, and
+differences in continuous gestational age and birth weight were assessed using a t-test.
+
+All analyses were conducted using R `r getRversion()` [@r_language] and the tidyverse [@tidyverse] and gtsummary [@gtsummary] packages.
+
+## Results
+
+<Summarize results here using `gtsummary::inline_text()` to report statistics from tables.>
+
+## Tables
+
+<Print summary and analysis tables here.>
+
+## References
+
+

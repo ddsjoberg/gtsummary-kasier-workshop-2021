@@ -1,0 +1,46 @@
+class: inverse, center, middle
+# In Closing
+
+
+---
+# {gtsummary} website
+
+.large[http://www.danieldsjoberg.com/gtsummary/]
+
+<p align="center"><img src="Images/gtsummary_website.png" width=80%></p>
+
+
+---
+# {gtsummary} installation
+
+.pull-left[
+Install production version from CRAN:
+
+```{r eval = FALSE}
+install.packages("gtsummary")
+```
+]
+.pull-right[
+
+Install development version from GitHub:
+
+```{r eval = FALSE}
+remotes::install_github("ddsjoberg/gtsummary")
+```
+]
+
+<p align="center"><img src="Images/cran-downloads.png" width=80%></p>
+
+---
+# Thank you
+
+<img src = "https://github.com/ddsjoberg/gtsummary/raw/master/data-raw/misc_files/tbl_summary_demo1.gif" alt = "animated" width = "100%">
+
+#### gtsummary questions?
+
+.medium[
+`r icons::fontawesome("stack-overflow")` Ask on [stackoverflow.com](stackoverflow.com) and *use the gtsummary tag*. Hundreds of Qs already answered!
+`r icons::fontawesome("twitter")` @statistishdan,    `r icons::fontawesome("github")` @ddsjoberg
+
+]
+
