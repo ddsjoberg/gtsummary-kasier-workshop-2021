@@ -18,6 +18,9 @@ library(tidyverse)
 
 # import data
 df_opt <- readRDS(file = here::here("data", "df_opt.rds"))
+
+# add variable labels
+
 ```
 
 ## Cohort Summary
@@ -31,25 +34,20 @@ Create a table summarizing patient baseline characteristics by randomization ass
 ## Treatment Comparison
 
 Create a table comparing the following outcomes by randomization group
-  - rate of gestational age <= 37 weeks
-  - mean difference in gestational age
+  - rate of gestational age <= 37 weeks at birth
+  - mean difference in gestational age at birth
   - mean difference in birth weight
   
+Report the summary statistics for each randomization group, the mean/rate difference between each group, the confidence interval for the difference, and a comparative p-value.
+  
 ```{r compare}
-df_opt %>%
-  select(group, preg_ended_37_wk, ga_at_outcome, birthweight) %>%
-  tbl_summary(
-    by = group, 
-    missing = "no",
-    statistic = all_continuous() ~ "{mean} ({sd})"
-  ) %>%
-  add_n() %>%
-  add_difference()
+
 ```
 
 ## Models
 
-Build three regression models to predict gestational age <= 37 weeks, continuous gestational age, and continuous birth weight using patient baseline characteristics and randomization assignment.
+To understand heterogeneity in baseline risk of each of the outcomes, build the following regression models.
+Using the patients in the control group only, build three regression models to predict gestational age <= 37 weeks, continuous gestational age, and continuous birth weight using patient baseline characteristics.
 Summarize each model using the gtsummary package, and merge the results into a single table.
 
 ```{r model}
