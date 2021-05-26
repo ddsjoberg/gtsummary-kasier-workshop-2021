@@ -30,6 +30,9 @@ Statistical analyses were carried out on an intent-to-treat basis.
 Differences in gestational age ≤ 37 weeks were assessed using Pearson's chi-squared test, and
 differences in continuous gestational age and birth weight were assessed using a t-test.
 
+Lastly, we wished to characterize baseline heterogeneity in the risk of the outcomes.
+To this end, we built three models predicting the study outcomes utilizing participants in the control group.
+
 All analyses were conducted using R `r getRversion()` [@r_language] and the tidyverse [@tidyverse] and gtsummary [@gtsummary] packages.
 
 ## Results
